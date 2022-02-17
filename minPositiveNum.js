@@ -14,7 +14,6 @@ function minPositive(arr) {
   }
   let firstNum = arr[0];
   let lastNum = arr[arr.length - 1];
-
   if (firstNum < 0 || (firstNum >= lastNum && lastNum >= 0)) {
     arr.shift();
   } else if (lastNum < 0 || (lastNum >= firstNum && firstNum >= 0)) {
