@@ -3,23 +3,24 @@
 
 //another way of resolving with recursion
 
-let arr = [-9, -23, -105];
+let arr = [-9, -23, 15, 5, -105];
 
 function minPositive(arr) {
-  if (arr.length === 1) {
-    if (arr[0] < 0) {
+  const newArr = [...arr];
+  if (newArr.length === 1) {
+    if (newArr[0] < 0) {
       return -1;
     }
-    return arr[0];
+    return newArr[0];
   }
-  let firstNum = arr[0];
-  let lastNum = arr[arr.length - 1];
+  let firstNum = newArr[0];
+  let lastNum = newArr[newArr.length - 1];
   if (firstNum < 0 || (firstNum >= lastNum && lastNum >= 0)) {
-    arr.shift();
+    newArr.shift();
   } else if (lastNum < 0 || (lastNum >= firstNum && firstNum >= 0)) {
-    arr.pop();
+    newArr.pop();
   }
-  return minPositive(arr);
+  return minPositive(newArr);
 }
 
 console.log(minPositive(arr));
