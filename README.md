@@ -83,3 +83,7 @@
 [Solution](sumOfDigits.js)
 
 ---
+
+- 8 Implement merge sort.
+
+[Solution](mergeSort.js)
