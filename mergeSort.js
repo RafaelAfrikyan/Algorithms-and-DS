@@ -1,6 +1,31 @@
+// Implement merge sort.
+
+function mergeArray(left, right) {
+  let result = [];
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
+  }
+  return [...result, ...left, ...right];
+}
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const middle = Math.floor(arr.length / 2);
+  return mergeArray(
+    mergeSort(arr.slice(0, middle)),
+    mergeSort(arr.slice(middle))
+  );
+}
+
+const arr = [1, 9, 3, 8, 6, 5, 7, 4, 2];
+console.log(mergeSort(arr));
+
 // 1. Binary search
-
-
 
 // function findItem(arr, item) {
 //   let first = 0;
@@ -24,7 +49,6 @@
 // console.log(findItem([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4)); //  3
 // console.log(findItem([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 245)); //  -1
 
-
 // 2. Bubble sorting with recursion
 
 // let arr = [
@@ -32,7 +56,6 @@
 //   3, 32,
 // ];
 // let count = 0;
-
 
 // function bubbleSort(arr) {
 //   for (let i = 0; i < arr.length; i++) {
@@ -48,5 +71,3 @@
 // }
 // console.log(bubbleSort(arr));
 // console.log(count);
-
-
